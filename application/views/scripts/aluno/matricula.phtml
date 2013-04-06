@@ -1,0 +1,285 @@
+<script type="text/javascript" src="<?php echo $this->baseUrl('js/jquery/aluno/validateMatricula.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo $this->baseUrl('js/functions.js'); ?>"></script>
+
+<div class="column">
+	<div class="row-fluid">
+		<h3 class="form-heading" style="padding-left:30px;">Matr&iacute;cula</h3>
+		<hr />
+		<form class="form-search" style="padding-left:30px;">
+			<label for="busca-matricula">Pesquisar n&uacute;mero de matr&iacute;cula:</label>
+			<input type="text" class="input-medium search-query">
+			<button type="submit" class="btn">Buscar</button>
+		</form>
+		<form name="matricula-aluno" action="" method="post" class="ym-form linearize-form ym-columnar"  style="padding-left:30px;">
+			<h4 class="form-heading">Dados do Aluno</h4>
+			<div class="ym-grid">
+				<div class="ym-g50 ym-g1"> 
+					<div class="ym-gbox ym-fbox-text">
+						<label for="cpf_aluno">Cpf:</label>
+						<input type="text" name="cpf" id="cpf_aluno" />
+					</div>
+				<div class="ym-gbox ym-fbox-text">
+					<label for="nome">Nome:</label>
+					<input type="text" name="nome" id="nome_aluno" pattern="[A-Za-z]" onkeypress="return somenteLetras(event);" />	
+				</div>
+				<div class="ym-gbox ym-fbox-text">
+					<label for="data_nascimento_aluno">Data de Nascimento:</label>
+					<input type="text" name="data_nascimento" id="data_nascimento_aluno" class="small" />
+				</div>
+				<div class="ym-gbox ym-fbox-text">
+					<label for="responsavel_aluno">Nome do Respons&aacute;vel:&nbsp;</label>
+					<input type="text" name="responsavel" id="responsavel_aluno" pattern="[A-Za-z]" onkeypress="return somenteLetras(event);" />
+				</div>
+				<div class="ym-gbox ym-fbox-check">
+						<span class="ym-label">Parentesco do Respons&aacute;vel:</span>
+						<div>
+							<input id="pai" type="radio" value="pai" name="parentesco" />
+							<label for="pai">Pai:</label>
+						</div>
+						<div>
+							<input id="mae" type="radio" value="mae" name="parentesco" />
+							<label for="mae">M&atilde;e:</label>
+						</div>
+						<div>
+							<input id="outro" type="radio" value="outro" name="parentesco" />
+							<label for="outro">Outro:</label>
+						</div>
+				</div>
+				<div class="ym-gbox ym-fbox-text">
+					<label for="sr_atual">S&eacute;rie Atual:</label>
+					<span>8ª S&eacute;rie</span>
+				</div>
+			</div>
+			<hr />
+			<h4 class="form-heading">Endere&ccedil;o</h4>
+				<div class="ym-g50 ym-g1">
+				<div class="ym-gbox ym-fbox-text">
+					<label for="cep">Cep:&nbsp;</label>
+					<input type="text" name="cep" id="cep" class="small" onchange="getEndereco();" />
+				</div>
+				<div class="ym-gbox ym-fbox-text">
+					<label for="rua_aluno">Rua:&nbsp;</label>
+					<input type="text" name="rua" id="rua" />
+				</div>
+				<div class="ym-gbox ym-fbox-text">
+					<label for="numero">N&uacute;mero:&nbsp;</label>
+					<input type="text" name="numero" id="numero" class="small"/>
+				</div>
+				<div class="ym-gbox ym-fbox-text">
+					<label for="complemento">Complemento:&nbsp;</label>
+					<input type="text" name="complemento" id="complemento" class="small" />
+				</div>
+				</div>
+				<div class="ym-g50 ym-gr" style="margin-top:-175px !important;">
+				<div class="ym-gbox ym-fbox-text">
+					<label for="bairro">Bairro:&nbsp;</label>
+					<input type="text" name="bairro" id="bairro" />
+				</div>
+				<div class="ym-gbox ym-fbox-text">
+					<label for="cidade">Cidade:&nbsp;</label>
+					<input type="text" name="cidade" id="cidade" />
+				</div>
+				<div class="ym-gbox ym-fbox-text">
+					<label for="estado">Estado:&nbsp;</label>
+					<input type="text" name="estado" id="estado" />
+				</div>
+				</div>
+				<div class="ym-clearfix"></div>
+				<hr />
+				<h4 class="form-heading">Telefone:&nbsp;</h4>
+				<div class="ym-g50 ym-g1">
+				<div class="ym-gbox ym-fbox-text">
+					<label for="ddd">DDD:&nbsp;</label>
+					<input type="text" name="ddd" id="ddd" class="small" />
+				</div>
+				<div class="ym-gbox ym-fbox-text">
+					<label for="telefone">Telefone:&nbsp;</label> 
+					<input type="text" name="telefone" id="telefone"  class="small"/>
+				</div>
+				<div class="ym-gbox ym-fbox-text">
+					<label for="email">Email:&nbsp;</label>
+					<input type="text" name="email" id="email" />
+				</div>
+				</div>
+				<hr />
+				<h4 class="form-heading">Question&aacute;rio Socio-Econ&ocirc;mico:&nbsp;</h4>
+				<div class="ym-g50 ym-g1">
+				<div class="ym-gbox ym-fbox-check">
+					<span class="ym-label">Pessoas na Fam&iacute;lia:&nbsp;</span>
+					<div>
+						<input id="1_pessoa" type="radio" value="1" name="pessoas_familia" />
+						<label for="1_pessoa">Uma:</label>
+					</div>
+					<div>
+						<input id="2_pessoa" type="radio" value="2" name="pessoas_familia" />
+						<label for="2_pessoa">Duas:</label>
+					</div>
+					<div>
+						<input id="3_pessoa" type="radio" value="3" name="pessoas_familia" />
+						<label for="3_pessoa">Tr&ecirc;s:</label>
+					</div>
+					<div>
+						<input id="4_pessoa" type="radio" value="4" name="pessoas_familia" />
+						<label for="4_pessoa">Quatro:</label>
+					</div>
+					<div>
+						<input id="5_pessoa" type="radio" value="5" name="pessoas_familia" />
+						<label for="5_pessoa">Cinco:</label>
+					</div>
+						
+				</div>
+				<div class="ym-gbox ym-fbox-text">
+					<label for="profissao_familiar">Qual a profiss&atilde;o do respons&aacute;vel pela fam&iacute;lia?&nbsp;</label>
+					<input type="text" name="profissao_familiar" id="profissao_familiar" />
+				</div>
+				<div class="ym-gbox ym-fbox-check">
+					<span class="ym-label">Tipo de resid&ecirc;ncia:&nbsp;</span>
+					<div>
+						<input id="propria" type="radio" value="1" name="residencia_familiar" />
+						<label for="propria">Pr&oacute;pria:</label>
+					</div>
+					<div>
+						<input id="alugada" type="radio" value="2" name="residencia_familiar" />
+						<label for="alugada">Alugada:</label>
+					</div>
+					<div>
+						<input id="emprestada" type="radio" value="3" name="residencia_familiar" />
+						<label for="emprestada">Emprestada:</label>
+					</div>
+					<div>
+						<input id="alvenaria" type="radio" value="4" name="residencia_familiar" />
+						<label for="alvenaria">Alvenaria:</label>
+					</div>
+					<div>
+						<input id="madeira" type="radio" value="5" name="residencia_familiar" />
+						<label for="madeira">Madeira:</label>
+					</div>
+						
+				</div>
+			</div>
+			<div class="ym-g50 ym-gr" style="margin-top:-300px !important;">
+				<div class="ym-gbox ym-fbox-check">
+					<span class="ym-label">Pessoas Empregadas:&nbsp;</span>
+					<div>
+						<input id="1_pessoa" type="radio" value="1" name="pessoas_empregadas" />
+						<label for="1_pessoa">Uma:</label>
+					</div>
+					<div>
+						<input id="2_pessoa" type="radio" value="2" name="pessoas_empregadas" />
+						<label for="2_pessoa">Duas:</label>
+					</div>
+					<div>
+						<input id="3_pessoa" type="radio" value="3" name="pessoas_empregadas" />
+						<label for="3_pessoa">Tr&ecirc;s:</label>
+					</div>
+					<div>
+						<input id="4_pessoa" type="radio" value="4" name="pessoas_empregadas" />
+						<label for="4_pessoa">Quatro:</label>
+					</div>
+					<div>
+						<input id="5_pessoa" type="radio" value="5" name="pessoas_empregadas" />
+						<label for="5_pessoa">Cinco:</label>
+					</div>
+						
+				</div>
+				<div class="ym-gbox ym-fbox-check">
+					<span class="ym-label">Renda Mensal Familiar:&nbsp;</span>
+					<div>
+						<input id="ate_510" type="radio" value="1" name="renda_familiar" />
+						<label for="ate_510">Até R$ 510,00:</label>
+					</div>
+					<div>
+						<input id="510_755" type="radio" value="2" name="renda_familiar" />
+						<label for="510_755"> De R$ 510,00 até R$ 755,00:</label>
+					</div>
+					<div>
+						<input id="755_1020" type="radio" value="3" name="renda_familiar" />
+						<label for="755_1020">De R$ 755,00 até R$ 1.020,00:</label>
+					</div>
+					<div>
+						<input id="1020_1530" type="radio" value="4" name="renda_familiar" />
+						<label for="1020_1530">De R$ 1.020,00 até R$ 1.530,00:</label>
+					</div>
+					<div>
+						<input id="acima_1530" type="radio" value="5" name="renda_familiar" />
+						<label for="acima_1530">Acima de R$ 1.530,00:</label>
+					</div>
+					<div>
+						<input id="ajuda_governo" type="radio" value="6" name="renda_familiar" />
+						<label for="ajuda_governo">Recebe ajuda do governo</label>
+					</div>
+					<div>
+						<input id="sem_renda" type="radio" value="7" name="renda_familiar" />
+						<label for="sem_renda">N&atilde;o possui renda</label>
+					</div>
+				</div>
+				<div class="ym-gbox ym-fbox-check">
+					<span class="ym-label">Qual seu estado civil?&nbsp;</span>
+					<div>
+						<input id="solteiro" type="radio" value="1" name="estado_civil" />
+						<label for="solteiro">Solteiro(a):</label>
+					</div>
+					<div>
+						<input id="casado" type="radio" value="2" name="estado_civil" />
+						<label for="casado">Casado(a):</label>
+					</div>
+					<div>
+						<input id="viuvo" type="radio" value="2" name="estado_civil" />
+						<label for="viuvo">Vi&uacute;vo(a):</label>
+					</div>
+					<div>
+						<input id="sep_jud" type="radio" value="3" name="estado_civil" />
+						<label for="sep_jud">Separado(a) Judicialmente:</label>
+					</div>
+					<div>
+						<input id="divorciado" type="radio" value="4" name="estado_civil" />
+						<label for="divorciado">Divorciado:</label>
+					</div>
+					<div>
+						<input id="uniao_estavel" type="radio" value="5" name="estado_civil" />
+						<label for="uniao_estavel">Uni&atilde;o Est&aacute;vel:</label>
+					</div>
+				</div>
+				<div class="ym-gbox ym-fbox-check">
+					<span class="ym-label">Historico de alcoolismo?&nbsp;</span>
+					<div>
+						<input id="sim" type="radio" value="1" name="alcoolismo" />
+						<label for="sim">SIM:</label>
+					</div>
+					<div>
+						<input id="nao" type="radio" value="2" name="alcoolismo" />
+						<label for="nao">N&Atilde;O:</label>
+					</div>
+				</div>
+			</div>
+		</div>
+		<hr />
+		<h4 class="form-heading">Matr&iacute;cula</h4>	
+			<div class="ym-g50 ym-g1">
+				<div class="ym-gbox ym-fbox-select">
+				<label for="turma_matricula">Turma:</label>
+					<select name="turma_matricula">
+						<option value="1">1 S&eacute;rie</option>
+						<option value="2">2 S&eacute;rie</option>
+						<option value="3">3 S&eacute;rie</option>
+						<option value="4">4 S&eacute;rie</option>
+						<option value="5">5 S&eacute;rie</option>
+						<option value="6">6 S&eacute;rie</option>
+						<option value="7">7 S&eacute;rie</option>
+						<option value="8">8 S&eacute;rie</option>
+						<option value="9">9 S&eacute;rie</option>
+						<option value="10">1 Ano</option>
+						<option value="11">2 Ano</option>
+						<option value="12">3 Ano</option>
+					</select>
+				</div>
+			
+			</div>
+			<div class="ym-fbox-button">
+				<button type="submit" class="ym-button ym-add">Salvar</button>
+				<button type="submit" class="ym-button">Limpar Campos</button>
+			</div>
+	</form>
+</div>
+	
+</div>

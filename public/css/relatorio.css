@@ -1,0 +1,7 @@
+table.relatorio {white-space: nowrap; border-collapse: collapse; border:1px solid #f4f9fe; width:100%;}
+table.relatorio tfoot {background:#f4f9fe; font-weight:bold; border-top:1px solid #f4f9fe; border-bottom:1px solid #f4f9fe;}
+table.relatorio thead {background:#f4f9fe; border-top:1px solid #f4f9fe; color:#000; border-bottom:1px solid #f4f9fe;}
+table.relatorio td,table.relatorio th {padding:10px !important;}
+table.relatorio th {text-align:center;}
+tr.coluna1 {background:#f9fcfe; font-weight:bold;   text-align:center; }
+tr.coluna2 {background:#FFF;    font-weight:normal; text-align:center; }

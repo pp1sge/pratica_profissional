@@ -1,0 +1,14 @@
+	<?php if ($this->pageCount): ?>
+	<!-- Numbered page links -->
+        <ul>
+	<?php foreach ($this->pagesInRange as $page): ?>
+	 <?php if ($page != $this->current): ?>
+            <li><a class="pages" id="<?php echo $page; ?>" href="<?php echo $this->url(array('pagina' => $page)); ?>">
+	 <?php echo $page; ?>
+	 </a></li>
+	 <?php else: ?>
+	  <li><a href="#"><?php echo $page; ?></a></li> 
+	 <?php endif; ?>
+	<?php endforeach; ?>
+	</ul>
+	<?php endif; ?>

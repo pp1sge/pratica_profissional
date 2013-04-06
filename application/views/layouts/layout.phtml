@@ -1,0 +1,50 @@
+<?php echo $this->doctype();?>
+<head>
+    <?php echo $this->headTitle(); ?>
+    <?php echo $this->headMeta(); ?>
+    <link rel="stylesheet" href="<?php echo $this->baseUrl('css/bootstrap.css'); ?>" />
+    <link rel="stylesheet" href="<?php echo $this->baseUrl('css/custom.css'); ?>" />
+    <link rel="stylesheet" href="<?php echo $this->baseUrl('css/yaml/core/base.css'); ?>" />
+    <link rel="stylesheet" href="<?php echo $this->baseUrl('css/yaml/screen/screen-FULLPAGE-layout.css'); ?>" />
+    <link rel="stylesheet" href="<?php echo $this->baseUrl('css/yaml/screen/grid-960-12.css'); ?>" />
+    <link rel="stylesheet" href="<?php echo $this->baseUrl('css/yaml/navigation/vlist.css'); ?>" />
+    <link rel="stylesheet" href="<?php echo $this->baseUrl('css/yaml/forms/gray-theme.css'); ?>" />
+    <link rel="stylesheet" href="<?php echo $this->baseUrl('css/yaml/add-ons/accessible-tabs/tabs.css'); ?>" />
+
+
+    <link rel="stylesheet" href="<?php echo $this->baseUrl('css/relatorio.css'); ?>" />
+    <link rel="stylesheet" href="<?php echo $this->baseUrl('css/bootstrap.css'); ?>" />
+    <link rel="stylesheet" href="<?php echo $this->baseUrl('css/custom.css'); ?>" />
+    <link rel="stylesheet" href="<?php echo $this->baseUrl('js/jquery/css/blitzer/jquery-ui-1.10.1.custom.css'); ?>" />
+
+    <?php 
+    //echo $this->jQuery();
+    ?>
+    <script type="text/javascript" src="<?php echo $this->baseUrl('js/jquery/jquery-1.9.1.js'); ?>"></script>
+    <script type="text/javascript" src="<?php echo $this->baseUrl('js/jquery/jquery-ui-1.10.1.custom.js'); ?>"></script>
+    <script type="text/javascript" src="<?php echo $this->baseUrl('css/yaml/add-ons/accessible-tabs/jquery.tabs.js'); ?>"></script>
+    <script type="text/javascript" src="<?php echo $this->baseUrl('js/jquery/highcharts.js'); ?>"></script>
+    <script type="text/javascript" src="<?php echo $this->baseUrl('js/ajax.js'); ?>"></script>
+    <script type="text/javascript" src="<?php echo $this->baseUrl('js/mask.js'); ?>"></script>
+    <script>
+        $(document).ready(function(){
+           $('.level-2').hide();
+           $('#reports').mouseover(function(){
+               $('.level-2').show();
+           });
+           $('#reports').mouseout(function(){
+               $('.level-2').hide();
+           });
+            $('.jquery_tabs').accessibleTabs();
+        });
+       </script>
+</head>
+<body>
+<?php echo $this->render('index/header.phtml'); ?>
+    <div id="main">
+        <?php echo $this->Layout()->content; ?>
+    </div>
+    <footer>
+         &copy;SGE  Sistema de Gerenciamento Educacional v 1.0 ( Beta )
+    </footer> 
+</body>

@@ -1,0 +1,52 @@
+
+<article class="module width_full">
+        <header></header>
+		<div class="tab_container">
+			<div id="tab1" class="tab_content">
+			<table class="tablesorter" cellspacing="0" border="1"> 
+			<thead> 
+			<tr> 
+                            <th>Codigo de Barras</th> 
+                            <th>Nome</th>
+                            <th>Tipo</th>
+                            <th>Categoria</th>
+                            <th>Descri&ccedil;&atilde;o</th>
+                            <th>Tamanho</th>
+                            <th>Pre&ccedil;o</th>
+                            <th>Quantidade</th> 
+            </tr> 
+			</thead> 
+			<tbody id="grid_values"><tr style=""> 
+                                <td style="text-align:center;">9626</td> 
+                                <td style="text-align:center;">Bermuda</td>
+                                <td style="text-align:center;">Bermuda em Helanca</td> 
+                                <td style="text-align:center;">teste5</td> 
+                                <td style="text-align:center;">Bermuda em Helanca</td>
+                                <td style="text-align:center;">P</td> 
+                                <td style="text-align:center;">R$32,00</td>
+                                <td style="text-align:center;">100</td> 
+                            </tr> 
+                            <tr style="background:#DDD; font-weight:bold;"> 
+                                <td style="text-align:center;">41010</td> 
+                                <td style="text-align:center;">Bermuda</td>
+                                <td style="text-align:center;">Bermuda em Helanca</td> 
+                                <td style="text-align:center;">teste5</td> 
+                                <td style="text-align:center;">yrdyr</td>
+                                <td style="text-align:center;">G</td> 
+                                <td style="text-align:center;">R$32,00</td>
+                                <td style="text-align:center;">100</td> 
+                            </tr> 
+                            <tr style="background:#FFF;"> 
+                                <td style="text-align:center;">66992</td> 
+                                <td style="text-align:center;">Camisa Pré-Escolar</td>
+                                <td style="text-align:center;">Camisa Pré-Escolar</td> 
+                                <td style="text-align:center;">teste5</td> 
+                                <td style="text-align:center;">teste</td>
+                                <td style="text-align:center;">2</td> 
+                                <td style="text-align:center;">R$32,00</td>
+                                <td style="text-align:center;">100</td> 
+                            </tr> 
+                            </tbody> 
+			</table>
+			</div><!-- end of #tab1 -->
+            

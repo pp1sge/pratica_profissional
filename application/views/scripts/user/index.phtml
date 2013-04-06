@@ -1,0 +1,20 @@
+<script type="text/javascript" src="<?php echo $this->baseUrl('js/base.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo $this->baseUrl('js/grid.js'); ?>"></script>
+<div id="msg_success"><?php echo $this->render('user/save.phtml'); ?></div>
+<article class="module width_full">
+     <header><h3>Cadastrar Usuário</h3></header>
+<div class="module_content">
+<?php 
+    echo $this->form; 
+?>
+    <div id="form-senha" style="display:none;">
+        <?php 
+            echo $this->formRecuperaSenha;
+        ?>
+    </div>
+</div>
+</article>
+<div id="produtos-grid-1">
+    <?php echo $this->render('user/grid.phtml'); ?>
+</div>
+>

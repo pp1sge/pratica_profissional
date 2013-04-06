@@ -1,0 +1,76 @@
+<div id="msg"></div>
+<article class="module width_full">
+        <header><h3 class="tabs_involved">Dados</h3>
+            <div class="quick_search" id="quick_search">
+                <?php echo $this->search; ?>
+                <div class="clearfix"></div>
+            </div>
+	</header>
+		<div class="tab_container">
+			<div id="tab"  class="tab_content">
+			<table class="tablesorter" cellspacing="0"> 
+			<thead> 
+			<tr> 
+                            <th>Nome do usuário</th> 
+                            <th>Login</th>
+                            <th>E-mail</th>
+                            <th>Permissão</th>
+                            <th>Actions</th> 
+                        </tr> 
+			</thead> 
+			<tbody id="grid_values">
+                            <?php if(count($this->produtos)):?> 
+                            <?php foreach($this->produtos as $produto): ?>
+                            <tr class="grid" id="<?php echo $produto->codigo;?>"> 
+                                <td><?php echo $produto->nome; ?></td> 
+                                <td><?php echo $produto->login; ?></td>
+                                <td><?php echo $produto->email; ?></td> 
+                                <td><?php echo $this->permissao->mostra_permissao($produto->codigo_permissao); ?></td> 
+                                <td>
+                                	<script>
+                                		var ajax = new Ajax();
+                                	</script>
+                                <?php 
+                                echo $this->ajaxLink("Editar",
+                                                    $this->url(array('controller'=>'user','action'=>'edit','module'=>'dashboard'),'default',true),
+                                                    array(
+                                                        'update' => '#msg',
+                                                        'method' => 'POST',
+                                                        'beforeSend' => "ajax.carregando(document.getElementById('msg_success'));",
+                                                        'complete' => "$('#carregando').fadeOut();",
+                                                        'inline'	 => true
+                                                    
+                                                    ),array(
+                                                        'id'    => $produto->codigo
+                                                    ));
+                                 echo $this->ajaxLink("Inativar",
+                                                    $this->url(array('controller'=>'user','action'=>'inativar','module'=>'dashboard'),'default',true),
+                                                    array(
+                                                        'update' => '#msg',
+                                                        'method' => 'POST',
+                                                    ),array(
+                                                        'id'    => $produto->codigo
+                                                    ));
+                                ?>
+                                </td> 
+                            </tr> 
+                            <?php endforeach; ?>
+                            <?php endif;      ?>
+			</tbody> 
+			</table>
+			</div><!-- end of #tab1 -->
+
+                </div><!-- end of .tab_container -->
+                <footer>
+                    <?php 
+                    if(!is_null($this->produtos)):
+                         $pagination = $this->paginationControl($this->produtos); 
+                    endif;
+                    ?>
+                    <div class="paginacao">
+                        <?php 
+                         echo $pagination;
+                        ?>
+                    </div>
+                </footer>
+		</article><!-- end of content manager article -->

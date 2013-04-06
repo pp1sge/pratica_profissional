@@ -1,0 +1,7 @@
+#menu-container {width:100%; background:#ccc;}
+#menu-container #menu {width:1000px; margin:0 auto; padding-top:4px; padding-bottom: 4px;}
+#menu-container #menu li {float:left; list-style: none; margin-right: 15px;}
+#menu-container #menu li a {text-decoration:none; font-size:14pt; color:#fff;}
+#menu-container #menu li a:hover {text-decoration:underline;}
+#login-container {width:100%; background:#000;}
+#login-container #login-info {color:#FFF; float:right; margin-right:30px;}

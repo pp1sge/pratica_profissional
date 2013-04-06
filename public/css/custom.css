@@ -1,0 +1,13 @@
+/* 
+    Document   : custom
+    Created on : 17/03/2013, 17:47:58
+    Author     : Paulo
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+.label-filter {font-size:14px; 
+               font-weight: bold; padding:3px; width:100%; }
+.input-filter {float:left; background:#EEEEEE; padding-right:3px; padding-bottom:4px; }
+.input-filter li {list-style:none; text-align:left;}
+

@@ -1,0 +1,33 @@
+<?php foreach($this->search as $search):?>
+<tr id="<?php echo $search['codigo']; ?>">
+    <td>
+        <?php echo $search['nome']; ?>
+    </td>
+    <td><?php echo $search['login']; ?></td>
+    <td><?php echo $search['email']; ?></td> 
+    <td><?php echo $this->permissao->mostra_permissao($search['codigo_permissao']); ?></td> 
+    <td>
+       <?php 
+        echo $this->ajaxLink("Editar",
+                            $this->url(array('controller'=>'user','action'=>'edit','module'=>'dashboard'),'default',true),
+                            array(
+                                'update' => '#msg',
+                                'method' => 'POST',
+                                'inline' => true
+                            ),array(
+                                'id'    => $search['codigo']
+                            ));
+        echo $this->ajaxLink("Inativar",
+                            $this->url(array('controller'=>'user','action'=>'inativar','module'=>'dashboard'),'default',true),
+                            array(
+                                'update' => '#msg',
+                                'method' => 'POST',
+                                'inline' => true
+                            ),array(
+                                'id'    => $search['codigo']
+                            ));
+        ?>
+    </td> 
+</tr>
+<?php endforeach; ?>
+
